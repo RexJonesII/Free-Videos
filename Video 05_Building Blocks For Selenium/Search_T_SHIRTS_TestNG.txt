@@ -1,0 +1,95 @@
+package BuildingBlocks;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class Search_T_SHIRTS_TestNG
+{
+	WebDriver driver;
+	
+	@BeforeTest
+	public void setUp ()
+	{
+		// System.setProperty("webdriver.chrome.driver", "C:/Users/Rex Allen Jones II/Downloads/Drivers/chromedriver.exe");
+		
+		driver = new ChromeDriver (); 
+		
+		// Go to http://automationpractice.com/index.php
+		driver.get("http://automationpractice.com/index.php");	
+	}
+	
+	@Test
+	public void automationSignIn ()
+	{
+		// Click Sign in hyperlink		
+		driver.findElement(By.linkText("Sign in")).click();		
+		
+		// Enter Email address "Selenium@Automation.com"
+		driver.findElement(By.id("email")).sendKeys("Selenium@Automation.com");
+					
+		// Enter Password "SeleniumAutomation1234"
+		driver.findElement(By.name("passwd")).sendKeys("SeleniumAutomation1234");
+		
+		// Click Sign in button
+		driver.findElement(By.cssSelector("#SubmitLogin")).click();
+		
+		// Verify correct user "Selenium Automation"
+		String actualUser = driver.findElement(By.linkText("Selenium Automation")).getText();
+
+		String expectedUser = "selenium automation";
+		
+		Assert.assertTrue(actualUser.equalsIgnoreCase(expectedUser));
+	}
+	
+	@Test
+	public void search_T_Shirts ()
+	{
+		// Click T-SHIRTS
+		driver.findElement(By.partialLinkText("SHIRTS")).click();
+			
+		// Enter Orange in Search text field
+		driver.findElement(By.xpath("//*[@id=\"search_query_top\"]")).sendKeys("Orange");	
+		
+		// Click Search button
+		driver.findElement(By.xpath("//*[@type='submit']")).click();		
+		
+		// Verify Search is correct color "ORANGE"
+		String actualColor = driver.findElement(By.xpath("//*[@id=\"center_column\"]/h1/span[1]")).getText();
+		
+		String expectedColor = "\"ORANGE\"";
+		
+		Assert.assertEquals(actualColor, expectedColor, "The Actual And Expected Colors DO NOT Match");
+	}
+	
+	@Test
+	public void signOut ()
+	{
+		// Click Sign out hyperlink
+		WebElement linkSignOut = driver.findElement(By.className("logout"));
+		linkSignOut.isDisplayed();
+		linkSignOut.click();
+	}
+	
+	@AfterTest
+	public void tearDown ()
+	{
+		// Close web browser
+		//driver.quit();
+	}
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,43 @@
+package PracticeExercises;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class RegisterDemoWebShop 
+{
+	public static void main(String[] args) 
+	{
+		WebDriver driver = new ChromeDriver ();
+		
+		driver.get("http://demowebshop.tricentis.com/");
+		
+		//  Click Register Hyperlink
+		driver.findElement(By.linkText("Register")).click();
+		
+		//  Your Personal Details
+		driver.findElement(By.id("gender-male")).click();		
+		driver.findElement(By.xpath("//input[@id='FirstName']")).sendKeys("Selenium");		
+		driver.findElement(By.cssSelector("#LastName")).sendKeys("Automation");
+		driver.findElement(By.name("Email")).sendKeys("Selenium_Automation@Test4Success.org");
+		
+		// Your Password
+		driver.findElement(By.xpath("//input[@id='Password']")).sendKeys("3400_Tioga_Tx");
+		driver.findElement(By.xpath("//*[@id='ConfirmPassword']")).sendKeys("3400_Tioga_Tx");
+		
+		//  Click Register Button
+		driver.findElement(By.xpath("//input[@id='register-button']")).click();
+		
+		//  Click Email-Account 
+		driver.findElement(By.className("account")).click();
+		
+		//  Save Registration Information
+		driver.findElement(By.xpath("//input[@name='save-info-button']")).click();
+		
+		//  Logout
+		driver.findElement(By.partialLinkText("out")).click();
+		
+		//  Close Browser
+		driver.quit();
+	}	
+}

@@ -1,0 +1,43 @@
+package com.selenium4beginners.selenium_testng;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+public class Browser_Methods
+{
+	WebDriver driver;
+
+	@Test
+	public void demoSeleniumBrowserMethods ()
+	{
+		driver = new ChromeDriver ();
+			
+		driver.manage().window().maximize();
+		
+		driver.get("https://www.LinkedIn.com");
+		
+		String strCurrentURL = driver.getCurrentUrl();
+		System.out.println("What Is The Current URL? " + strCurrentURL);
+		
+		String strTitle = driver.getTitle();
+		System.out.println("What Is The Page Title? " + strTitle);
+				
+		System.out.println(driver.getPageSource());
+		
+		//driver.close();
+		
+		driver.quit();		
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
