@@ -1,0 +1,108 @@
+package com.selenium4beginners.java;
+
+import org.testng.annotations.Test;
+
+public class Conditional_Statements
+{
+	
+	@Test
+	public void demoIfThenBranch ()
+	{
+		int age = 34;
+		if (age == 24)
+		{
+			System.out.println("Age = 24");
+		}
+		
+		if (age == 34)
+		{
+			System.out.println("Age = 34");
+		}
+	}	
+		
+	@Test
+	public void demoIfThenElseBranch ()
+	{
+		int age = 34;
+		if (age == 24)
+		{
+			System.out.println("Age = 24");
+		}
+		else
+		{
+			System.out.println("Age = 34");
+		}
+	}
+
+	@Test
+	public void demoIfThenElseIfBranch()
+
+	{
+		int age = 65;
+		
+		if (age >= 65)
+		{
+			System.out.println("You Are Eligible To Retire At " + age);
+		}
+		else if (age >= 20)
+		{
+			System.out.println("You Are Not Eligible To Retire At " + age); 
+		}
+		else if (age >= 13 && age <= 19)
+		{
+			System.out.println("You Are A Teenager At " + age); 
+		}
+		else
+		{
+			System.out.println("You Are Not Old Enough To Work At " + age);
+		}
+	}
+	
+	@Test
+	public void demoSwitchBranch ()
+	{
+		int medal = 1;
+//		double cost = 98.76; - Cannot Use type double
+//		boolean result = false; - Cannot use type boolean
+		
+		switch (medal) 
+		{
+		case 1:
+			System.out.println("1 = Gold Medal");
+			break;
+		case 2:
+			System.out.println("2 = Silver Medal");
+			break;
+		case 3:
+			System.out.println("3 = Bronze Medal");
+			break;
+		default:
+			System.out.println("No Medal");
+			break;
+		}
+	}	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

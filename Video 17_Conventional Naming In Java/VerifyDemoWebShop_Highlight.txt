@@ -1,0 +1,104 @@
+package PracticeExercises;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import com.selenium4beginners.utility.Highlighter;
+
+public class VerifyDemoWebShop_Highlight 
+{
+	WebDriver driver; 
+	
+	@BeforeTest
+	public void setUp ()
+	{
+		driver = new ChromeDriver ();
+		
+		driver.get("http://demowebshop.tricentis.com/");
+	}
+	
+	@Test
+	public void registerAccount ()
+	{
+		//  Click Register Hyperlink
+		WebElement linkRegister = driver.findElement(By.linkText("Register"));
+		Highlighter.highlightElement(driver, linkRegister);
+		linkRegister.click();
+		
+		//  Your Personal Details
+		WebElement gender = driver.findElement(By.id("gender-male"));
+		Highlighter.highlightElement(driver, gender);
+		gender.click();		
+		
+		WebElement firstName = driver.findElement(By.xpath("//input[@id='FirstName']"));
+		Highlighter.highlightElement(driver, firstName);
+		firstName.sendKeys("Selenium");		
+		
+		WebElement lastName = driver.findElement(By.cssSelector("#LastName"));
+		Highlighter.highlightElement(driver, lastName);
+		lastName.sendKeys("Automation");
+		
+		WebElement email = driver.findElement(By.name("Email"));
+		Highlighter.highlightElement(driver, email);
+		email.sendKeys("Selenium@Automation.com"); // Change Email After Every Run
+		
+		// Your Password
+		WebElement password = driver.findElement(By.xpath("//input[@id='Password']"));
+		Highlighter.highlightElement(driver, password);
+		password.sendKeys("Selenium_Automation");
+		
+		WebElement confirmPassword = 	driver.findElement(By.xpath("//*[@id='ConfirmPassword']"));
+		Highlighter.highlightElement(driver, confirmPassword);
+		confirmPassword.sendKeys("Selenium_Automation");
+		
+		//  Click Register Button
+		WebElement buttonRegister = driver.findElement(By.xpath("//input[@id='register-button']"));
+		Highlighter.highlightElement(driver, buttonRegister);
+		buttonRegister.click();			
+	}
+	
+	@Test
+	public void verifyAccount()
+	{
+		// Verify the Email hyperlink "Account Information"
+		WebElement emailAccount = driver.findElement(By.xpath("//a[@href='/customer/info']"));
+		Highlighter.highlightElement(driver, emailAccount);
+		
+		String actualEmail = emailAccount.getText(); 
+		String expectedEmail = "Selenium@Automation.com"; // Change Email After Every Run		
+		Assert.assertTrue(actualEmail.equalsIgnoreCase(expectedEmail), "The Actual And Expected Email-Accounts DO NOT Match");	
+		
+		//  Click Email-Account 
+		emailAccount.click();
+	}
+	
+	@Test
+	public void verifyLogInLink ()
+	{
+		//  Logout
+		WebElement linkLogOut = driver.findElement(By.partialLinkText("out"));
+		Highlighter.highlightElement(driver, linkLogOut);
+		linkLogOut.click();
+		
+		// Verify User Logged Out via Log in hyperlink
+		WebElement linkLogIn = driver.findElement(By.xpath("//a[@href='/login']"));
+		Highlighter.highlightElement(driver, linkLogIn);
+		
+		String actualLogInLinkName = linkLogIn.getText();
+		String expectedLogInLinkName = "Log in";		
+		Assert.assertEquals(actualLogInLinkName, expectedLogInLinkName, "The Actual And Expected Log In Link Names DO NOT Match");
+	}
+	
+	@AfterTest
+	public void tearDown ()
+	{
+		//  Close Browser
+		driver.quit();
+	}
+}

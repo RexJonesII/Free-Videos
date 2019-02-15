@@ -1,0 +1,126 @@
+package com.selenium4beginners.selenium_testng;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+import com.google.common.base.Function;
+
+public class Wait_Methods 
+{
+	WebDriver driver;
+	
+	@BeforeMethod
+	public void setUp ()
+	{
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Rex Allen Jones II\\Downloads\\Drivers\\chromedriver.exe");
+		driver = new ChromeDriver ();
+		driver.manage().window().maximize();
+	}
+	
+	@Test
+	public void demoPageLoadTimeOut () 
+	{
+		driver.manage().timeouts().pageLoadTimeout(3, TimeUnit.SECONDS);
+		
+		// Thread.sleep(3000); Should Not Use Thread.sleep As A Wait Method
+		
+		driver.get("https://opensource-demo.orangehrmlive.com");
+		
+		System.out.println("What Is The Page Title? " + driver.getTitle());
+	}
+		
+	@Test
+	public void demoImplicitWait ()
+	{		
+		driver.get("http://the-internet.herokuapp.com/");
+		
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		
+		driver.findElement(By.xpath("//*[@id=\"content\"]/ul/li[12]/a")).click(); 
+		driver.findElement(By.xpath("//*[@id=\"content\"]/div/a[2]")).click(); 
+		driver.findElement(By.xpath("//*[@id=\"start\"]/button")).click(); 
+		
+		WebElement findHelloWorld = driver.findElement(By.xpath("//*[@id=\"finish\"]/h4"));
+		String messageHelloWorld = findHelloWorld.getText();		
+		System.out.println(messageHelloWorld);
+		
+	}
+	
+	@Test
+	public void demoExplicitWait ()
+	{
+		driver.get("http://the-internet.herokuapp.com/");
+		
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+		
+		driver.findElement(By.xpath("//*[@id=\"content\"]/ul/li[12]/a")).click(); 
+		driver.findElement(By.xpath("//*[@id=\"content\"]/div/a[2]")).click(); 
+		driver.findElement(By.xpath("//*[@id=\"start\"]/button")).click(); 		
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"finish\"]/h4")));
+		
+		WebElement findHelloWorld = driver.findElement(By.xpath("//*[@id=\"finish\"]/h4"));
+		String messageHelloWorld = findHelloWorld.getText();		
+		System.out.println(messageHelloWorld);
+	}
+
+	@Test
+	public void demoFluentWait ()
+	{
+		driver.get("http://toolsqa.com/automation-practice-switch-windows/");
+		
+		 // Waiting 41 seconds for an element to be present on the page
+		   // checking for its presence once every 1 second.
+		   Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+		       .withTimeout(41, TimeUnit.SECONDS)
+		       .pollingEvery(1, TimeUnit.SECONDS)
+		       .ignoring(NoSuchElementException.class);
+
+		   WebElement element = wait.until(new Function<WebDriver, WebElement>()
+		   {
+		     public WebElement apply(WebDriver driver) 
+		     {
+		       WebElement timer = driver.findElement(By.xpath("//*[@id=\"clock\"]"));
+		       String messageTimer = timer.getText();
+		       
+		       if (messageTimer.equals("Buzz Buzz")) 
+		       {
+		    	   System.out.println("The Sound Of An Opportunity Clock Is " + messageTimer);
+		    	   return timer;
+		       } 
+		       else 
+		       {
+		    	   	System.out.println(messageTimer);
+		    	   	return null;
+		       }
+		       
+		     }
+		   });
+	}
+	
+	@AfterMethod
+	public void tearDown ()
+	{
+		//driver.quit();
+	}
+}
+
+
+
+
+
+
+
+

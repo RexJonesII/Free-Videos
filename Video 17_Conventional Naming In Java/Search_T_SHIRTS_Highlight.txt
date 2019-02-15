@@ -1,0 +1,104 @@
+package BuildingBlocks;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import com.selenium4beginners.utility.Highlighter;
+
+public class Search_T_SHIRTS_Highlight
+{
+	WebDriver driver;
+	
+	@BeforeTest
+	public void setUp ()
+	{
+		// System.setProperty("webdriver.chrome.driver", "C:/Users/Rex Allen Jones II/Downloads/Drivers/chromedriver.exe");
+		
+		driver = new ChromeDriver (); 
+		
+		// Go to http://automationpractice.com/index.php
+		driver.get("http://automationpractice.com/index.php");	
+	}
+	
+	@Test
+	public void automationSignIn ()
+	{
+		// Click Sign in hyperlink		
+		WebElement linkSignIn = 	driver.findElement(By.linkText("Sign in"));
+		Highlighter.highlightElement(driver, linkSignIn);		
+		linkSignIn.click();		
+		
+		// Enter Email address "Selenium@Automation.com"
+		WebElement email = driver.findElement(By.id("email"));
+		Highlighter.highlightElement(driver, email);
+		email.sendKeys("Selenium@Automation.com");
+					
+		// Enter Password "SeleniumAutomation1234"
+		WebElement password = driver.findElement(By.name("passwd"));
+		Highlighter.highlightElement(driver, password);
+		password.sendKeys("SeleniumAutomation1234");
+		
+		// Click Sign in button
+		WebElement buttonSignIn = driver.findElement(By.cssSelector("#SubmitLogin"));
+		Highlighter.highlightElement(driver, buttonSignIn);
+		buttonSignIn.click();
+		
+		// Verify correct user "Selenium Automation"
+		WebElement user = driver.findElement(By.linkText("Selenium Automation"));
+		Highlighter.highlightElement(driver, user);
+		
+		String actualUser = user.getText();
+		String expectedUser = "selenium automation";		
+		Assert.assertTrue(actualUser.equalsIgnoreCase(expectedUser));
+	}
+	
+	@Test
+	public void search_T_Shirts ()
+	{
+		// Click T-SHIRTS
+		WebElement t_shirts = driver.findElement(By.partialLinkText("SHIRTS"));
+		Highlighter.highlightElement(driver, t_shirts);
+		t_shirts.click();
+			
+		// Enter Orange in Search text field
+		WebElement searchTextField = driver.findElement(By.xpath("//*[@id=\"search_query_top\"]"));
+		Highlighter.highlightElement(driver, searchTextField);
+		searchTextField.sendKeys("Orange");	
+		
+		// Click Search button
+		WebElement buttonSearch = driver.findElement(By.xpath("//*[@type='submit']"));
+		Highlighter.highlightElement(driver, buttonSearch);
+		buttonSearch.click();		
+		
+		// Verify Search is correct color "ORANGE"
+		WebElement searchValue = driver.findElement(By.xpath("//*[@id=\"center_column\"]/h1/span[1]"));
+		Highlighter.highlightElement(driver, searchValue);
+		
+		String actualColor = searchValue.getText();		
+		String expectedColor = "\"ORANGE\"";		
+		Assert.assertEquals(actualColor, expectedColor, "The Actual And Expected Colors DO NOT Match");
+	}
+	
+	@Test
+	public void signOut ()
+	{
+		// Click Sign out hyperlink
+		WebElement linkSignOut = driver.findElement(By.className("logout"));
+		Highlighter.highlightElement(driver, linkSignOut);
+		linkSignOut.isDisplayed();
+		linkSignOut.click();
+	}
+	
+	@AfterTest
+	public void tearDown ()
+	{
+		// Close web browser
+		driver.quit();
+	}
+}
