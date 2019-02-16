@@ -1,0 +1,49 @@
+package com.selenium4beginners.selenium_testng;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.Test;
+
+public class WebElement_Methods 
+{
+	WebDriver driver;
+	
+	@BeforeTest
+	public void setUp ()
+	{
+		driver = new ChromeDriver ();
+		driver.manage().window().maximize();	
+	}
+	@Test
+	public void demoSeleniumWebElementMethods ()
+	{
+		driver.get("https://sharpspring.com");
+		
+		driver.findElement(By.linkText("Login")).click();
+				
+		driver.findElement(By.id("username")).sendKeys("RexAllenJones@Hotmail.com");
+		
+		driver.findElement(By.id("password")).sendKeys("Selenium4Beginners"); 
+		
+		driver.findElement(By.id("password")).clear();
+		
+		driver.findElement(By.id("login-button")).submit();  
+		
+		String strErrorMessage = driver.findElement(By.xpath("//*[@id=\"login-form\"]/form/ul/li[1]/h4")).getText();
+		System.out.println("What Is The Error Message? "+ strErrorMessage);
+		
+		String strPlaceHolder = driver.findElement(By.id("password")).getAttribute("");
+		System.out.println("getText = I Will Enter My "+ strPlaceHolder);
+		
+		String strPasswordLabel = driver.findElement(By.id("password")).getAttribute("placeholder");
+		System.out.println("getAttribute = I Will Enter My "+ strPasswordLabel);	
+	}
+	
+	@AfterTest
+	public void tearDown ()
+	{
+		driver.quit();
+	}
+}
