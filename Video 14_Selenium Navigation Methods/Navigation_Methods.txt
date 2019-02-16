@@ -1,0 +1,40 @@
+package com.selenium4beginners.selenium_testng;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class Navigation_Methods 
+{
+	WebDriver driver;
+	
+	@BeforeTest
+	public void setUp ()
+	{
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Rex Allen Jones II\\Downloads\\Drivers\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.navigate().to("https://www.LinkedIn.com");
+	}
+
+	@Test
+	public void demoSeleniumNavigationMethods ()
+	{		
+		driver.findElement(By.linkText("Forgot password?")).click();		
+	
+		driver.findElement(By.id("username")).sendKeys("RexAllenJones@Hotmail.com");		
+
+		driver.navigate().refresh();
+		
+		driver.navigate().back();
+		String homePageTitle = driver.getTitle();
+		System.out.println("What Is The Home Page Title? " + homePageTitle);
+				
+		driver.navigate().forward();
+		String passwordPageTitle = driver.getTitle();
+		System.out.println("What Is The Forgot Password Page Title? " + passwordPageTitle);
+	}
+}
+
