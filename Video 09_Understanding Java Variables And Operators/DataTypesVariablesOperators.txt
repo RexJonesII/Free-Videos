@@ -1,0 +1,57 @@
+package com.selenium4beginners.java;
+
+import org.testng.annotations.Test;
+
+public class DataTypesVariablesOperators
+{
+	@Test
+	public void demoDataTypesVariables ()
+	{
+		// int supports numbers without decimals
+		int year = 2034;
+		
+		// double supports numbers with decimals
+		double amount; 
+		amount = 23.45;
+		
+		// supports true or false values
+		boolean outcome = false;
+		
+		System.out.println("What Year Did You Pay $" + amount + " For Gas? " + year);
+		System.out.println("I Hope That Outcome Is " + outcome);
+	}
+	
+	@Test
+	public void demoArithmeticOperators ()
+	{
+		int total = 3 + 4;		
+		System.out.println("What Is The Total Of 3 + 4? " + total);
+		
+		int incrementTotal = ++total;
+		System.out.println("What Is The New Total After Incrementing 3 + 4? " + incrementTotal);
+	}
+	
+	@Test
+	public void demoRelationalOperators ()
+	{
+		int x = 5;
+		int y = 25;
+		
+		System.out.println("Is 5 Equal To 25? " + (x == y));
+		
+		System.out.println("Is 5 Less Than 25? " + (5 < 25));	
+	}
+	
+	@Test
+	public void demoLogicalOperators ()
+	{
+		int x = 10;
+		int y = 100;
+		
+		// Logical AND '&&' Operator
+		System.out.println("Do You Know If 10 and 100 Is Greater Than 50? " + (x > 50 && y > 50));
+		
+		// Logical OR '||' Operator
+		System.out.println("Do You Know If 10 or 100 Is Greater Than 50? " + (x > 50 || y > 50));
+	}
+}
