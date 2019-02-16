@@ -1,0 +1,17 @@
+package com.selenium4beginners.java.passvalue;
+
+public class Call_Car
+{
+	public static void main(String[] args) 
+	{
+		Car coupe = new Car ();
+		Car minivan = new Car ();
+
+		int coupeCost = coupe.calculateCost(14000, 1000, 1500);
+
+		int minivanCost = minivan.calculateCost(9000, 1000, 500);
+		
+		System.out.println("Difference Between Cars Cost = $" + (coupeCost - minivanCost));
+	}
+}
+

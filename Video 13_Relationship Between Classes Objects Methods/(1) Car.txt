@@ -1,0 +1,13 @@
+package com.selenium4beginners.java.objects;
+
+public class Car 
+{
+	int price;
+	int tax;
+	
+	public void calculateCost ()
+	{
+		int cost = price + tax;
+		System.out.println("What Is The Car's Cost? " + cost);
+	}	
+}

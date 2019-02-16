@@ -1,0 +1,18 @@
+package com.selenium4beginners.java.objects;
+
+public class Call_Car
+{
+	public static void main(String[] args) 
+	{
+		Car coupe = new Car ();
+		Car minivan = new Car ();
+		
+		coupe.price = 14000;  
+		coupe.tax = 1000;
+		coupe.calculateCost();  
+		
+		minivan.price = 9000;
+		minivan.tax = 1000;
+		minivan.calculateCost();
+	}
+}

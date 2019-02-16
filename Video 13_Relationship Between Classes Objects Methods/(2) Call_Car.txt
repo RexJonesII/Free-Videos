@@ -1,0 +1,21 @@
+package com.selenium4beginners.java.returnvalue;
+
+public class Call_Car
+{
+	public static void main(String[] args) 
+	{
+		Car coupe = new Car ();
+		Car minivan = new Car ();
+		Car sedan = new Car ();
+		
+		coupe.price = 14000;
+		coupe.tax = 1000;
+		int coupeCost = coupe.calculateCost();
+		
+		minivan.price = 9000;
+		minivan.tax = 1000;
+		int minivanCost = minivan.calculateCost();
+		
+		System.out.println("Difference Between Cars Cost = $" + (coupeCost - minivanCost));
+	}
+}

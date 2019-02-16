@@ -1,0 +1,22 @@
+package com.selenium4beginners.java.passvalue;
+
+public class Car 
+{
+	int price;
+	static int tax;
+	
+	public int calculateCost (int price, int tax, int registration)
+	{
+		int cost = price + tax + registration;
+		System.out.println("What Is The Car's Cost? $" + cost);
+		
+		return cost;
+	}
+}
+
+
+
+
+
+
+

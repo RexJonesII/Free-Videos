@@ -1,0 +1,15 @@
+package com.selenium4beginners.java.returnvalue;
+
+public class Car 
+{
+	int price;
+	int tax;	
+	
+	public int calculateCost ()
+	{	
+		int cost = price + tax;
+		System.out.println("What Is The Car's Cost? $" + cost);
+		
+		return cost;
+	}	
+}
