@@ -1,0 +1,76 @@
+package com.selenium4beginners.java.Control_Statements;
+
+import org.testng.annotations.Test;
+
+public class Loop_Statements
+{
+	@Test
+	public void demoForLoops ()
+	{
+		System.out.println("Start For Loop");
+		
+		for (int i = 0; i <= 10; i ++) 
+		{
+			System.out.println("i = " + i);
+		}
+		
+		System.out.println("Stop For Loop \n");
+		
+		System.out.println("Start For Loop");
+		
+		for (int x = 10; x >= 0; x -= 2)
+		{
+			System.out.println("x = " + x);
+		}
+		
+		
+		System.out.println("Stop For Loop \n");
+	}
+	
+	@Test
+	public void demoWhileLoops ()
+	{
+		System.out.println("Start While Loop");
+		
+		int counter = 0;
+		
+		while (counter < 100)
+		{
+			System.out.println("counter = " + counter);
+			counter += 10;
+		}
+				
+		System.out.println("Stop While Loop \n");
+	}
+	
+	@Test
+	public void demoDoWhileLoops ()
+	{
+		System.out.println("Start Do-While Loop");
+		
+		int y = 0;
+		
+		do 
+		{
+			System.out.println("y = " + y);
+			y++;
+		} 
+		while (y <= 20);		
+		
+		System.out.println("Stop Do-While Loop");
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
