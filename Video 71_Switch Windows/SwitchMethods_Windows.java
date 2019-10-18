@@ -60,7 +60,6 @@ public class SwitchMethods_Windows
 						"\n \t Title: \t \t" + driver.getTitle());	
 				
 			}
-
 		}
 	}
 }
