@@ -1,5 +1,5 @@
-# Selenium-Social-Media
-This repository includes code and documents from videos via Social Media
+# Rex Jones II-Social-Media
+This repository includes code and documents from Free Videos via Social Media
 
 YouTube =  https://tinyurl.com/YT-Selenium-4-Beginner-Videos
 
