@@ -1,0 +1,337 @@
+id: d5b54801dc0ab8c7915c13
+created: 2021-04-16T03:40:57.173Z
+projectId: ttsHwksBcEiIW9d6bBB3LQ
+projectName: TestProject Tutorial
+owner: Rex Jones II
+protocol: 1
+tests:
+  - id: 8ed3eb87ae011f633eb620
+    name: Hybrid Offline Demo
+    description: ""
+    platform: Web
+    type: Web
+    driverType: Chrome
+    version: "0.1"
+    creationDate: 2021-04-16T03:40:57.173Z
+    modificationDate: 2021-04-16T03:42:32.710Z
+    settings:
+      appId: hl6dLwUMSUCz9VIe7fMopA
+      automationAssistant: true
+      stepSleepTime: 500
+      stepTimeout: 15000
+      stepSleepTiming: Before
+      stepFailureBehaviorType: Abort
+      stepTakeScreenshotConditionType: Failure
+    application:
+      id: hl6dLwUMSUCz9VIe7fMopA
+      name: TestProject Example Page
+      url: https://example.testproject.io/web/
+      platform: Web
+    steps:
+      - id: 3b09dd573feb8474843b6d
+        comments: Navigates the specified URL (Auto-generated)
+        enabled: true
+        invertResult: false
+        order: 1
+        repeat: 1
+        type: Action
+        settings:
+          sleepTime: -1
+          timeout: -1
+          sleepTiming: Inherit
+          failureBehaviorType: Inherit
+          takeScreenshotConditionType: Inherit
+        action:
+          source: System
+          id: 49c5d8d8-4ba8-42f0-823d-702e6acfb23a
+        parameterMaps:
+          - direction: Input
+            name: url
+            value: "{{ApplicationURL}}"
+        conditions: []
+        validations: []
+        contexts: []
+      - id: 80afbf125273da10889b46
+        comments: ""
+        enabled: true
+        order: 2
+        repeat: 1
+        type: Action
+        settings:
+          sleepTime: -1
+          timeout: -1
+          sleepTiming: Inherit
+          failureBehaviorType: Inherit
+          takeScreenshotConditionType: Inherit
+        action:
+          source: System
+          id: a5d4eb31-51f0-4c62-8832-60c6bcd51a16
+        parameterMaps:
+          - direction: Input
+            name: x
+            value: "0"
+          - direction: Input
+            name: y
+            value: "100"
+        conditions: []
+        validations: []
+        contexts: []
+      - id: c2a010303b4130e2267013
+        comments: ""
+        enabled: true
+        order: 3
+        repeat: 1
+        type: Action
+        settings:
+          sleepTime: -1
+          timeout: -1
+          sleepTiming: Inherit
+          failureBehaviorType: Inherit
+          takeScreenshotConditionType: Inherit
+        action:
+          source: System
+          id: a5d4eb31-51f0-4c62-8832-60c6bcd51a16
+        parameterMaps:
+          - direction: Input
+            name: x
+            value: "0"
+          - direction: Input
+            name: y
+            value: "98"
+        conditions: []
+        validations: []
+        contexts: []
+      - id: 8bc8b54dfaf6a81923fb96
+        comments: ""
+        enabled: true
+        order: 4
+        repeat: 1
+        type: Action
+        settings:
+          sleepTime: -1
+          timeout: -1
+          sleepTiming: Inherit
+          failureBehaviorType: Inherit
+          takeScreenshotConditionType: Inherit
+        action:
+          source: System
+          id: 02d572b2-d610-4700-9ad3-40076ddb9807
+        parameterMaps: []
+        conditions: []
+        validations: []
+        contexts: []
+        elementId: 3753d05450d19e837dcae6
+      - id: 5011cbf5ae8d8d95abb868
+        comments: ""
+        enabled: true
+        order: 5
+        repeat: 1
+        type: Action
+        settings:
+          sleepTime: -1
+          timeout: -1
+          sleepTiming: Inherit
+          failureBehaviorType: Inherit
+          takeScreenshotConditionType: Always
+        action:
+          source: System
+          id: 6f94fdaa-0041-4265-b73b-ecfcbe702d66
+        parameterMaps:
+          - direction: Input
+            name: keys
+            value: Rex File
+        conditions: []
+        validations: []
+        contexts: []
+        elementId: 3753d05450d19e837dcae6
+      - id: 72450779265c74cbd8f6eb
+        comments: ""
+        enabled: true
+        order: 6
+        repeat: 1
+        type: Action
+        settings:
+          sleepTime: -1
+          timeout: -1
+          sleepTiming: Inherit
+          failureBehaviorType: Inherit
+          takeScreenshotConditionType: Inherit
+        action:
+          source: System
+          id: 6f94fdaa-0041-4265-b73b-ecfcbe702d66
+        parameterMaps:
+          - direction: Input
+            name: keys
+            value: "12345"
+        conditions: []
+        validations: []
+        contexts: []
+        elementId: 83f00f0dff0da3ae3190e6
+      - id: 51cea38e47e248b2be9d57
+        comments: ""
+        enabled: true
+        order: 7
+        repeat: 1
+        type: Action
+        settings:
+          sleepTime: -1
+          timeout: -1
+          sleepTiming: Inherit
+          failureBehaviorType: Inherit
+          takeScreenshotConditionType: Inherit
+        action:
+          source: System
+          id: 02d572b2-d610-4700-9ad3-40076ddb9807
+        parameterMaps: []
+        conditions: []
+        validations: []
+        contexts: []
+        elementId: 1fed97c2d9adfc3d4f7759
+      - id: 6eb68e7604d67db1a9a377
+        comments: ""
+        enabled: true
+        order: 8
+        repeat: 1
+        type: Action
+        settings:
+          sleepTime: -1
+          timeout: -1
+          sleepTiming: Inherit
+          failureBehaviorType: Inherit
+          takeScreenshotConditionType: Inherit
+        action:
+          source: System
+          id: 02d572b2-d610-4700-9ad3-40076ddb9807
+        parameterMaps: []
+        conditions: []
+        validations: []
+        contexts: []
+        elementId: 4bd11f65e757ba24b2e8fe
+      - id: 1357497c1eab4f48be0163
+        comments: ""
+        enabled: true
+        order: 9
+        repeat: 1
+        type: Action
+        settings:
+          sleepTime: -1
+          timeout: -1
+          sleepTiming: Inherit
+          failureBehaviorType: Inherit
+          takeScreenshotConditionType: Inherit
+        action:
+          source: System
+          id: a5d4eb31-51f0-4c62-8832-60c6bcd51a16
+        parameterMaps:
+          - direction: Input
+            name: x
+            value: "0"
+          - direction: Input
+            name: y
+            value: "197"
+        conditions: []
+        validations: []
+        contexts: []
+    parameters:
+      - name: ApplicationURL
+        description: Auto generated application URL parameter
+        value: https://example.testproject.io/web/
+        type: Input
+    tags:
+      - Hybrid
+      - Test
+      - Offline
+auxTests: []
+elements:
+  - id: 4bd11f65e757ba24b2e8fe
+    name: Logout
+    description: ""
+    type:
+      id: jUwODgyNjAyNzk2NTk1NDc
+      name: Button
+      source: System
+    index: 0
+    locators:
+      - name: CSSSELECTOR
+        value: "#logout"
+        priority: 0
+      - name: XPATH
+        value: |-
+          //button[. = '
+          					    Logout
+          				    ']
+        priority: 1
+      - name: XPATH
+        value: //button[2]
+        priority: 2
+      - name: XPATH
+        value: /html/body/div[2]/div[2]/form/div[6]/button[2]
+        priority: 3
+  - id: 1fed97c2d9adfc3d4f7759
+    name: Login
+    description: ""
+    type:
+      id: jUwODgyNjAyNzk2NTk1NDc
+      name: Button
+      source: System
+    index: 0
+    locators:
+      - name: CSSSELECTOR
+        value: "#login"
+        priority: 0
+      - name: XPATH
+        value: |-
+          //button[. = '
+          					    Login
+          				    ']
+        priority: 1
+      - name: XPATH
+        value: //div[3]/button
+        priority: 2
+      - name: XPATH
+        value: /html/body/div[2]/div[1]/form/div[3]/button
+        priority: 3
+  - id: 83f00f0dff0da3ae3190e6
+    name: Enter your password
+    description: ""
+    type:
+      id: jUwODgyNjAyNzk2NTk1NDY
+      name: Textbox
+      source: System
+    index: 0
+    locators:
+      - name: CSSSELECTOR
+        value: "#password"
+        priority: 0
+      - name: XPATH
+        value: //input[@placeholder = 'Enter your password']
+        priority: 1
+      - name: XPATH
+        value: //div[1]/form/div[2]//input
+        priority: 2
+      - name: XPATH
+        value: /html/body/div[2]/div[1]/form/div[2]/div/input
+        priority: 3
+  - id: 3753d05450d19e837dcae6
+    name: Enter your full name
+    description: ""
+    type:
+      id: jUwODgyNjAyNzk2NTk1NDY
+      name: Textbox
+      source: System
+    index: 0
+    locators:
+      - name: CSSSELECTOR
+        value: "#name"
+        priority: 0
+      - name: XPATH
+        value: //input[@placeholder = 'Enter your full name']
+        priority: 1
+      - name: XPATH
+        value: //div[1]/div/input
+        priority: 2
+      - name: XPATH
+        value: /html/body/div[2]/div[1]/form/div[1]/div/input
+        priority: 3
+projectParameters: []
+addons: []
